@@ -8,7 +8,7 @@ void printsum(int* arr1, int* arr2) {
 	for (int i=0 ; i<sizeof(buf) ; i++) {
 		buf[i] = arr1[i];		//buf에 arr1값을 담는다
 	}
-	uint32_t* p = reinterpret_cast<uint32_t*>(buf);
+	uint32_t* p = reinterpret_cast<uint32_t*>(buf);	//4바이트 정수를 처리하기 위해 uint32_t로 캐스팅한다.
 	uint32_t n1 = ntohl(*p);		//ntohl()함수는 네트워크 바이트 오더를 호스트 바이트 오더로 변환하는데 
 						//컴파일러가 빅엔디안인지 리틀엔디안인지를 알.아.서 파악하기 때문에 그냥 사용하면 된다.
 	for (int i=0 ; i<sizeof(buf) ; i++) {
